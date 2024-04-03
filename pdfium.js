@@ -352,10 +352,10 @@ var PDFiumModule = (() => {
             return filename.startsWith("file://")
         }
         var wasmBinaryFile;
+        var wasmBinaryFile;
         if (PDFiumModule.url) {
             wasmBinaryFile = PDFiumModule.url + '/pdfium.wasm';
-        }
-        else {
+        } else {
             wasmBinaryFile = 'pdfium.wasm';
         }
         if (!isDataURI(wasmBinaryFile)) {
@@ -3001,6 +3001,10 @@ var PDFiumModule = (() => {
             }
         }
 
+        function __emscripten_err(str) {
+            err(UTF8ToString(str))
+        }
+
         function __emscripten_throw_longjmp() {
             throw Infinity
         }
@@ -3758,6 +3762,7 @@ var PDFiumModule = (() => {
             "__syscall_rmdir": ___syscall_rmdir,
             "__syscall_stat64": ___syscall_stat64,
             "__syscall_unlinkat": ___syscall_unlinkat,
+            "_emscripten_err": __emscripten_err,
             "_emscripten_throw_longjmp": __emscripten_throw_longjmp,
             "_gmtime_js": __gmtime_js,
             "_localtime_js": __localtime_js,
@@ -4157,6 +4162,9 @@ var PDFiumModule = (() => {
         var _FPDFPage_Delete = Module["_FPDFPage_Delete"] = function () {
             return (_FPDFPage_Delete = Module["_FPDFPage_Delete"] = Module["asm"]["FPDFPage_Delete"]).apply(null, arguments)
         };
+        var _FPDF_MovePages = Module["_FPDF_MovePages"] = function () {
+            return (_FPDF_MovePages = Module["_FPDF_MovePages"] = Module["asm"]["FPDF_MovePages"]).apply(null, arguments)
+        };
         var _FPDFPage_New = Module["_FPDFPage_New"] = function () {
             return (_FPDFPage_New = Module["_FPDFPage_New"] = Module["asm"]["FPDFPage_New"]).apply(null, arguments)
         };
@@ -4363,6 +4371,9 @@ var PDFiumModule = (() => {
         };
         var _FPDFText_LoadStandardFont = Module["_FPDFText_LoadStandardFont"] = function () {
             return (_FPDFText_LoadStandardFont = Module["_FPDFText_LoadStandardFont"] = Module["asm"]["FPDFText_LoadStandardFont"]).apply(null, arguments)
+        };
+        var _FPDFText_LoadCidType2Font = Module["_FPDFText_LoadCidType2Font"] = function () {
+            return (_FPDFText_LoadCidType2Font = Module["_FPDFText_LoadCidType2Font"] = Module["asm"]["FPDFText_LoadCidType2Font"]).apply(null, arguments)
         };
         var _FPDFTextObj_GetFontSize = Module["_FPDFTextObj_GetFontSize"] = function () {
             return (_FPDFTextObj_GetFontSize = Module["_FPDFTextObj_GetFontSize"] = Module["asm"]["FPDFTextObj_GetFontSize"]).apply(null, arguments)
@@ -4691,6 +4702,9 @@ var PDFiumModule = (() => {
         var _FPDF_StructElement_GetChildAtIndex = Module["_FPDF_StructElement_GetChildAtIndex"] = function () {
             return (_FPDF_StructElement_GetChildAtIndex = Module["_FPDF_StructElement_GetChildAtIndex"] = Module["asm"]["FPDF_StructElement_GetChildAtIndex"]).apply(null, arguments)
         };
+        var _FPDF_StructElement_GetChildMarkedContentID = Module["_FPDF_StructElement_GetChildMarkedContentID"] = function () {
+            return (_FPDF_StructElement_GetChildMarkedContentID = Module["_FPDF_StructElement_GetChildMarkedContentID"] = Module["asm"]["FPDF_StructElement_GetChildMarkedContentID"]).apply(null, arguments)
+        };
         var _FPDF_StructElement_GetParent = Module["_FPDF_StructElement_GetParent"] = function () {
             return (_FPDF_StructElement_GetParent = Module["_FPDF_StructElement_GetParent"] = Module["asm"]["FPDF_StructElement_GetParent"]).apply(null, arguments)
         };
@@ -4750,6 +4764,9 @@ var PDFiumModule = (() => {
         };
         var _FPDFText_IsGenerated = Module["_FPDFText_IsGenerated"] = function () {
             return (_FPDFText_IsGenerated = Module["_FPDFText_IsGenerated"] = Module["asm"]["FPDFText_IsGenerated"]).apply(null, arguments)
+        };
+        var _FPDFText_IsHyphen = Module["_FPDFText_IsHyphen"] = function () {
+            return (_FPDFText_IsHyphen = Module["_FPDFText_IsHyphen"] = Module["asm"]["FPDFText_IsHyphen"]).apply(null, arguments)
         };
         var _FPDFText_HasUnicodeMapError = Module["_FPDFText_HasUnicodeMapError"] = function () {
             return (_FPDFText_HasUnicodeMapError = Module["_FPDFText_HasUnicodeMapError"] = Module["asm"]["FPDFText_HasUnicodeMapError"]).apply(null, arguments)
@@ -4945,6 +4962,9 @@ var PDFiumModule = (() => {
         };
         var _FPDF_GetDocPermissions = Module["_FPDF_GetDocPermissions"] = function () {
             return (_FPDF_GetDocPermissions = Module["_FPDF_GetDocPermissions"] = Module["asm"]["FPDF_GetDocPermissions"]).apply(null, arguments)
+        };
+        var _FPDF_GetDocUserPermissions = Module["_FPDF_GetDocUserPermissions"] = function () {
+            return (_FPDF_GetDocUserPermissions = Module["_FPDF_GetDocUserPermissions"] = Module["asm"]["FPDF_GetDocUserPermissions"]).apply(null, arguments)
         };
         var _FPDF_GetSecurityHandlerRevision = Module["_FPDF_GetSecurityHandlerRevision"] = function () {
             return (_FPDF_GetSecurityHandlerRevision = Module["_FPDF_GetSecurityHandlerRevision"] = Module["asm"]["FPDF_GetSecurityHandlerRevision"]).apply(null, arguments)
